@@ -20,7 +20,7 @@ from tkinter import filedialog as fd
 f_all_phonemes = sorted(os.listdir(path='audio'))
 all_phonemes = {}
 for f_phonem in f_all_phonemes:
-    all_phonemes[f_phonem[:f_phonem.find('.')]] = AudioSegment.from_wav(os.path.dirname(os.path.realpath(__file__)) + '/audio/' + f_phonem)
+    all_phonemes[f_phonem[:f_phonem.find('.wav')]] = AudioSegment.from_wav(os.path.dirname(os.path.realpath(__file__)) + '/audio/' + f_phonem)
 
 
 source_text_widget = None
@@ -51,8 +51,6 @@ def get_phonemes(text):
     text = re.sub(r'([бвгдзклмнпрстфх])ь', r"\1'_", text)
     text = re.sub(r'([бвгдзклмнпрстфх])ъ', r'\1_', text)
     text = re.sub(r'\s+', ' ', text)
-    text = re.sub(r',', '-', text)
-    text = re.sub(r'\.', '_ ', text)
     return text
 
 
