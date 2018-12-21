@@ -47,6 +47,7 @@ def get_phonemes(text):
     text = re.sub(r'ё', 'йо', text)
     text = re.sub(r'ю', 'йу', text)
     text = re.sub(r'я', 'йа', text)
+    text = re.sub(r'([цчшщ])й', r'\1', text)
     text = re.sub(r'([бвгдзклмнпрстфх])й', r"\1'", text)
     text = re.sub(r'([бвгдзклмнпрстфх])ь', r"\1'_", text)
     text = re.sub(r'([бвгдзклмнпрстфх])ъ', r'\1_', text)
